@@ -17,14 +17,14 @@ public class UsersList {
         System.out.println( login +" connected" );
 
         if (!this.onlineUsers.containsKey(login)) {
-            this.onlineUsers.put(login , new Client(socket, oos, ois));
+            this.onlineUsers.put(login , new Client(socket, oos, ois, login));
         } else {
             int i = 1;
             while(this.onlineUsers.containsKey(login)) {
                 login = login + i;
                 i++;
             }
-            this.onlineUsers.put(login , new Client(socket, oos, ois));
+            this.onlineUsers.put(login , new Client(socket, oos, ois, login));
         }
     }
 
@@ -49,4 +49,7 @@ public class UsersList {
         return clientsList;
     }
 
+    public Map<String, Client> getOnlineUsers() {
+        return onlineUsers;
+    }
 }

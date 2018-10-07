@@ -38,6 +38,10 @@ public class Message implements Serializable {
         return this.message;
     }
 
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
     public String[] getUsers() {
         return this.users;
     }
